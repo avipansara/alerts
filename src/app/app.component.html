@@ -2,16 +2,16 @@
   <div class="top-container">
     <div class="counter-container">
       <div class="c-header-text">Total Alerts Count</div>
-      <div class="c-alerts-count">100</div>
+      <div class="c-alerts-count">{{allAlerts.length}}</div>
     </div>
     <div class="filter-container">
       <div class="f-container">
         <div class="f-header-text">Filters</div>
         <div class="f-active-filters">
-          <div class="filter-btn">
-            <span>Placeholder: #1</span>
-            <span>Placeholder #2</span>
-            <span class="filter-delete">
+          <div class="filter-btn" *ngFor="let filter of activeFilters | keyvalue">
+            <span>{{filter.key}}:</span>
+            <span>{{filter.value}}</span>
+            <span class="filter-delete" (click)="removeFilter(filter.key)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -27,12 +27,37 @@
           </div>
         </div>
       </div>
+      <div
+        class="reset-btn"
+        *ngIf="!isFilterActive()"
+        (click)="reset()"
+      >Reset</div>
     </div>
   </div>
   <div class="body-container">
     <app-alert
       [category]="'Severity'"
       [title]="'Severity'"
+      [data]="allAlerts"
+      (selectCategory)="filterAlertsBy($event)"
+    ></app-alert>
+    <app-alert
+      [category]="'ClientIP'"
+      [title]="'Client IP'"
+      [data]="allAlerts"
+      (selectCategory)="filterAlertsBy($event)"
+    ></app-alert>
+    <app-alert
+      [category]="'Protocol'"
+      [title]="'Protocol'"
+      [data]="allAlerts"
+      (selectCategory)="filterAlertsBy($event)"
+    ></app-alert>
+    <app-alert
+      [category]="'ClientCountry'"
+      [title]="'Client Country'"
+      [data]="allAlerts"
+      (selectCategory)="filterAlertsBy($event)"
     ></app-alert>
   </div>
 </div>
