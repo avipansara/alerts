@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --BLACK: #090F20;
+  --NEARBLACK: #0B1228;
+  --WHITE: #FFFFFF;
+  --N20: #D0D3DA;
+  --N90: #2B3757;
+  --NAVY100: #121830;
+  --NAVY110: #090f20;
+  --NBLUE5: #F3F4F6;
+  --NBLUE10: #EDF2FF;
+  --NBLUE70: #80A1FF;
+  --NBLUE100: #4979FF;
+
+  --SUNSET70: #FFC44D;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
